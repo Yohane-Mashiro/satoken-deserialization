@@ -29,11 +29,11 @@ Sa-Token 在 Token-Session 读取路径中：
 导致攻击者可构造恶意序列化数据，在 `ObjectInputStream.readObject()` 阶段触发 Gadget 链执行任意代码。
 
 ## 受影响代码：
-JDK 反序列化入口（无类型过滤）: SaSerializerTemplateForJdk.java
-Base64 包装模板（启用后走上面的反序列化路径）: SaSerializerTemplateForJdkUseBase64.java
-DAO 将 String 与 Object 互转，反序列化由全局模板决定: SaTokenDaoByObjectFollowString.java
-Token-Session 访问路径（用于触发读取）: StpLogic.java:1480-1510, StpLogic.java
-受影响版本: 当前所有版本
+- JDK 反序列化入口（无类型过滤）: SaSerializerTemplateForJdk.java
+- Base64 包装模板（启用后走上面的反序列化路径）: SaSerializerTemplateForJdkUseBase64.java
+- DAO 将 String 与 Object 互转，反序列化由全局模板决定: SaTokenDaoByObjectFollowString.java
+- Token-Session 访问路径（用于触发读取）: StpLogic.java:1480-1510, StpLogic.java
+
 
 ## 利用链
 
